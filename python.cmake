@@ -20,7 +20,8 @@ set(CMAKE_INSTALL_PREFIX "/")
 set(CPACK_PACKAGING_INSTALL_PREFIX "/")
 
 
-#set(Python_FIND_UNVERSIONED_NAMES FIRST)
+set(Python_FIND_UNVERSIONED_NAMES FIRST)
+set(Python_FIND_UNVERSIONED_NAMES LAST)
 #find_package(Python COMPONENTS Interpreter)
 find_package(Python ${PY_VER} EXACT COMPONENTS Interpreter)
 
@@ -37,7 +38,7 @@ set(CMAKE_USE_RELATIVE_PATHS TRUE)
 
 include(CPack)
 
-set(SETUP_DEPS      "${CMAKE_CURRENT_SOURCE_DIR}/ofm/__init__.py")
+set(SETUP_DEPS      "${CMAKE_CURRENT_SOURCE_DIR}/python.cmake")
 set(SETUP_OUTPUT    "${CMAKE_CURRENT_BINARY_DIR}/build-python")
 
 add_custom_command(

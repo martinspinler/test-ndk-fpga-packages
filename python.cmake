@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.15)
 cmake_policy(VERSION 3.15)
 
 
-set(PY_VER 3) # Can be set to 3.11, if the dependencies exists
+set(PY_VER 3.9) # Can be set to 3.11, if the dependencies exists
 set(PYPROJ_NAME python${PY_VER}-${PROJECT_NAME})
 
 project(${PYPROJ_NAME} LANGUAGES C)
@@ -43,7 +43,7 @@ set(SETUP_OUTPUT    "${CMAKE_CURRENT_BINARY_DIR}/build-python")
 
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/setup_timestamp
-	COMMAND ls ARGS "/usr/bin/python*" "-al"
+	COMMAND ${Python_EXECUTABLE} ARGS -m pip install --upgrade pip
 	COMMAND ${Python_EXECUTABLE} ARGS -m pip install --no-deps --no-warn-script-location --root ${SETUP_OUTPUT} ${PYSRC}
     COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_BINARY_DIR}/setup_timestamp
     DEPENDS ${SETUP_DEPS}

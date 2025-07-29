@@ -43,6 +43,7 @@ set(SETUP_OUTPUT    "${CMAKE_CURRENT_BINARY_DIR}/build-python")
 
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/setup_timestamp
+	COMMAND ls ARGS "/usr/bin/python*" "-al"
 	COMMAND ${Python_EXECUTABLE} ARGS -m pip install --no-deps --no-warn-script-location --root ${SETUP_OUTPUT} ${PYSRC}
     COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_BINARY_DIR}/setup_timestamp
     DEPENDS ${SETUP_DEPS}

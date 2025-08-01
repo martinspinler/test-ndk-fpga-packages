@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.15)
 cmake_policy(VERSION 3.15)
 
 
-set(PY_VER 3.11) # Can be set to 3.11, if the dependencies exists
+set(PY_VER 3) # Can be set to 3.11, if the dependencies exists
 set(PYPROJ_NAME python${PY_VER}-${PROJECT_NAME})
 
 project(${PYPROJ_NAME} LANGUAGES C)
